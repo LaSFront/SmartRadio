@@ -1,27 +1,37 @@
-
 package ru.netology.smart;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
+
 public class Radio {
-    private int maxStation, minStation;
+    private int maxStation = 9, minStation = 0;
     private int currentStation;
-    private final int maxVolume = 100, minVolume = 0;
+    private int maxVolume = 100, minVolume = 0;
     private int currentVolume;
 
-    public Radio() {
-        this.maxStation = 9;
-        this.minStation = 0;
-     }
-     public Radio(int quantityOfStations) {
-        this.maxStation = quantityOfStations - 1;
-     }
 
-    public int getCurrentStation() {
-        return currentStation;
+    public Radio(int quantityOfStations) {
+        this.maxStation = quantityOfStations - 1;
     }
+
+    public Radio(int maxVolume, int minVolume) {
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+    }
+
     public int getMaxStation() {
         return maxStation;
     }
+
     public int getMinStation() {
         return minStation;
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
     }
 
     public void setCurrentStation(int newCurrentStation) {
@@ -34,13 +44,13 @@ public class Radio {
             return;
         }
         this.currentStation = newCurrentStation;
-     }
+    }
 
     public int nextStation() {
         if (currentStation >= maxStation) {
-           return minStation;
+            return minStation;
         } else {
-            currentStation ++;
+            currentStation++;
             return currentStation;
         }
     }
@@ -49,9 +59,17 @@ public class Radio {
         if (currentStation <= minStation) {
             return maxStation;
         } else {
-            currentStation --;
+            currentStation--;
             return currentStation;
         }
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
     }
 
     public int getCurrentVolume() {
@@ -74,7 +92,7 @@ public class Radio {
         if (currentVolume >= maxVolume) {
             return maxVolume;
         } else {
-            currentVolume ++;
+            currentVolume++;
             return currentVolume;
         }
     }

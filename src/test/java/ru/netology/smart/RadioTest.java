@@ -1,17 +1,18 @@
 package ru.netology.smart;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
     @Test
-    public void shouldCheckNumberOfMaxStation() {
+    public void shouldGetMaxMinStation() {
         Radio radio = new Radio(10);
 
-        Assertions.assertEquals(0, radio.getMinStation());
         Assertions.assertEquals(9, radio.getMaxStation());
-        Assertions.assertEquals(0, radio.getCurrentStation());
+        Assertions.assertEquals(0, radio.getMinStation());
     }
+
 
     @Test
     public void shouldSetCurrentStation() {
@@ -158,8 +159,16 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldGetMaxMinVolume() {
+        Radio radio = new Radio(100, 0);
+
+        Assertions.assertEquals(100, radio.getMaxVolume());
+        Assertions.assertEquals(0, radio.getMinVolume());
+    }
+
+    @Test
     public void shouldSetCurrentVolume() {
-        Radio radioV = new Radio();
+        Radio radioV = new Radio(100, 0);
 
         radioV.setCurrentVolume(99);
 
@@ -171,7 +180,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetCurrentVolume2() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(100);
 
@@ -183,7 +192,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetCurrentVolume3() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(101);
 
@@ -195,7 +204,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetCurrentVolume4() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(-1);
 
@@ -207,7 +216,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetCurrentVolume5() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(0);
 
@@ -219,7 +228,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetCurrentVolume6() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(1);
 
@@ -231,7 +240,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetHigherVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(99);
 
@@ -240,9 +249,10 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSetHigherVolume2() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(100);
 
@@ -251,9 +261,10 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSetHigherVolume3() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(101);
 
@@ -265,7 +276,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetLowerVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(-1);
 
@@ -274,9 +285,10 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSetLowerVolume2() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(0);
 
@@ -285,9 +297,10 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldSetLowerVolume3() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(100, 0);
 
         radio.setCurrentVolume(1);
 
