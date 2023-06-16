@@ -1,14 +1,40 @@
-
 package ru.netology.smart;
-public class Radio {
-    private int currentStation;
-    private final int maxStation = 9, minStation = 0;
-    private int currentVolume;
-    private final int maxVolume = 100, minVolume = 0;
 
-    public int getCurrentStation() {
-        return currentStation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@Data
+@NoArgsConstructor
+
+public class Radio {
+    private int maxStation = 9, minStation = 0;
+    private int currentStation;
+    private int maxVolume = 100, minVolume = 0;
+    private int currentVolume;
+
+
+    public Radio(int quantityOfStations) {
+       this.maxStation = quantityOfStations - 1;
     }
+
+    public Radio(int maxVolume, int minVolume) {
+        this.maxVolume = maxVolume;
+       this.minVolume = minVolume;
+    }
+
+    //public int getMaxStation() {
+    // return maxStation;
+    //}
+
+    //public int getMinStation() {
+    //return minStation;
+    //}
+
+    //public int getCurrentStation() {
+    //return currentStation;
+    //}
 
     public void setCurrentStation(int newCurrentStation) {
         if (newCurrentStation > maxStation) {
@@ -19,14 +45,14 @@ public class Radio {
             currentStation = minStation;
             return;
         }
-        currentStation = newCurrentStation;
-     }
+        this.currentStation = newCurrentStation;
+    }
 
     public int nextStation() {
         if (currentStation >= maxStation) {
-           return minStation;
+            return minStation;
         } else {
-            currentStation = currentStation +1;
+            currentStation++;
             return currentStation;
         }
     }
@@ -40,9 +66,17 @@ public class Radio {
         }
     }
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
+     // public int getMaxVolume() {
+     //return maxVolume;
+     //}
+
+    //public int getMinVolume() {
+    //return minVolume;
+    //}
+
+    //public int getCurrentVolume() {
+    //return currentVolume;
+    //}
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume > maxVolume) {
@@ -53,14 +87,14 @@ public class Radio {
             currentVolume = minVolume;
             return;
         }
-        currentVolume = newCurrentVolume;
+        this.currentVolume = newCurrentVolume;
     }
 
     public int higherVolume() {
         if (currentVolume >= maxVolume) {
             return maxVolume;
         } else {
-            currentVolume = currentVolume + 1;
+            currentVolume++;
             return currentVolume;
         }
     }
